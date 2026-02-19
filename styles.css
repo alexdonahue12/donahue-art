@@ -46,6 +46,28 @@ body{
   font-family: var(--sans);
 }
 
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container,
+.grid,
+.project-gallery,
+.series-gallery{
+  max-width: 100%;
+}
+
+.card,
+.thumb,
+.project-feature{
+  min-width: 0;
+}
+
+.card-link{
+  display: block;
+}
+
 @media (max-width: 900px){
   body{
     background-attachment: scroll;
