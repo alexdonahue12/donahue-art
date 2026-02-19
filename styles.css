@@ -39,10 +39,17 @@
 html, body{ height: 100%; }
 body{
   margin: 0;
-  background: radial-gradient(900px 520px at 20% 0%, #ffffff 0%, var(--paper) 55%) fixed;
+  background: radial-gradient(900px 520px at 20% 0%, #ffffff 0%, var(--paper) 55%);
+  background-attachment: scroll; /* safe default */
   color: var(--ink);
   line-height: 1.6;
   font-family: var(--sans);
+}
+
+@media (max-width: 900px){
+  body{
+    background-attachment: scroll;
+  }
 }
 
 img{ max-width: 100%; display: block; }
@@ -148,6 +155,13 @@ ul{ margin: 0; padding-left: 18px; }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
   box-shadow: 0 1px 0 rgba(176,138,46,.18);
+}
+
+@supports (-webkit-touch-callout: none){
+  .site-header{
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 .site-header .nav-link{
@@ -947,4 +961,7 @@ input:focus, textarea:focus{
   .card{ grid-column: span 12; }
   .thumb{ grid-column: span 12; }
   .thumb img{ height: 220px; }
+  .card-media{
+    aspect-ratio: 3 / 4; /* less tall than 1:1 on phones */
+  }
 }
