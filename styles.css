@@ -486,14 +486,27 @@ ul{ margin: 0; padding-left: 18px; }
 /* --------------------------
    Gallery Cards (museum labels)
 --------------------------- */
+/* --- Work grid (home thumbnails) --- */
 .grid{
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40px;
 }
 
+@media (max-width: 900px){
+  .grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px){
+  .grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* cards no longer need grid-column spans */
 .card{
-  grid-column: span 4;
   border-radius: 0;
   border: 1px solid rgba(20,20,20,.13);
   background: var(--surface);
@@ -501,6 +514,7 @@ ul{ margin: 0; padding-left: 18px; }
   box-shadow: 0 10px 30px rgba(20,20,20,.08);
   transition: transform .15s ease, box-shadow .15s ease;
 }
+
 .card:hover{
   transform: translateY(-2px);
   box-shadow: 0 16px 45px rgba(20,20,20,.12);
@@ -532,6 +546,7 @@ ul{ margin: 0; padding-left: 18px; }
   left: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none; /* prevents weird click/flow issues on mobile */
 
   margin: 0;
   padding: 24px 16px 18px;
@@ -972,7 +987,6 @@ input:focus, textarea:focus{
   .hero-inner{ grid-template-columns: 1fr; }
   .two-col{ grid-template-columns: 1fr; }
   .project-facts{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .card{ grid-column: span 6; }
 }
 
 @media (max-width: 560px){
@@ -980,7 +994,6 @@ input:focus, textarea:focus{
   .nav-link{ padding: 8px 10px; }
   .section-head{ flex-direction: column; align-items: flex-start; }
   .filters{ justify-content: flex-start; }
-  .card{ grid-column: span 12; }
   .thumb{ grid-column: span 12; }
   .thumb img{ height: 220px; }
   .card-media{
