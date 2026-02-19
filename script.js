@@ -1,14 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.2">
-  <style type="text/css">
-  </style>
-</head>
-<body>
-</body>
-</html>
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll(
+    ".project-feature img, .thumb img, .series-gallery img"
+  );
+
+  const modal = document.createElement("div");
+  modal.classList.add("image-modal");
+
+  const modalImg = document.createElement("img");
+  modal.appendChild(modalImg);
+
+  document.body.appendChild(modal);
+
+  images.forEach(img => {
+    img.style.cursor = "zoom-in";
+
+    img.addEventListener("click", function () {
+      modal.classList.add("active");
+      modalImg.src = this.src;
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  modal.addEventListener("click", function () {
+    modal.classList.remove("active");
+    modalImg.src = "";
+    document.body.style.overflow = "";
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      modal.classList.remove("active");
+      modalImg.src = "";
+      document.body.style.overflow = "";
+    }
+  });
+});

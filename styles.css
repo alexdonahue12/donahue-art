@@ -453,7 +453,7 @@ ul{ margin: 0; padding-left: 18px; }
 .grid{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
+  gap: 40px;
 }
 
 .card{
@@ -859,13 +859,13 @@ input:focus, textarea:focus{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  padding: 0 40px; /* ← adds space on left & right */
 }
 
 .series-gallery img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  border-radius: 0.75rem;
 }
 
 @media (max-width: 900px) {
@@ -900,6 +900,34 @@ input:focus, textarea:focus{
   margin-left: 12px;
 }
 .footer-links a:hover{ color: var(--gold); }
+/*---------------------------
+  Image modal
+---------------------------*/
+.image-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(20,20,20,.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease;
+  z-index: 9999;
+}
+
+.image-modal.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-modal img{
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
 
 /* --------------------------
    Responsive
