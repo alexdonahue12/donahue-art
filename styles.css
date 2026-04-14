@@ -497,26 +497,37 @@ ul{ margin: 0; padding-left: 18px; }
 --------------------------- */
 /* --- Work grid (home thumbnails) --- */
 .grid{
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.card{
+  width: calc((100% - 48px) / 4); /* 4 cards per row, accounting for 3 gaps */
+  border-radius: 0;
+  border: 1px solid rgba(20,20,20,.13);
+  background: var(--surface);
+  overflow: clip;
+  box-shadow: 0 10px 30px rgba(20,20,20,.08);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
 @media (max-width: 1100px){
-  .grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .card{
+    width: calc((100% - 32px) / 3); /* 3 per row */
   }
 }
 
 @media (max-width: 900px){
-  .grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .card{
+    width: calc((100% - 16px) / 2); /* 2 per row */
   }
 }
 
 @media (max-width: 560px){
-  .grid{
-    grid-template-columns: 1fr;
+  .card{
+    width: 100%; /* 1 per row */
   }
 }
 
