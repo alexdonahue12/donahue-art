@@ -495,16 +495,24 @@ ul{ margin: 0; padding-left: 18px; }
 /* --------------------------
    Gallery Cards (museum labels)
 --------------------------- */
-/* --- Work grid (home thumbnails) --- */
+/* --- Work grid: 2 / 2 / 3 layout --- */
 .grid{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* First 4 cards = 2 per row */
+.grid .card{
+  grid-column: span 3;
+}
+
+/* Last 3 cards = 3 per row */
+.grid .card:nth-child(n + 5){
+  grid-column: span 2;
 }
 
 .card{
-  width: calc((100% - 48px) / 4); /* 4 cards per row, accounting for 3 gaps */
   border-radius: 0;
   border: 1px solid rgba(20,20,20,.13);
   background: var(--surface);
@@ -513,32 +521,26 @@ ul{ margin: 0; padding-left: 18px; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
-@media (max-width: 1100px){
-  .card{
-    width: calc((100% - 32px) / 3); /* 3 per row */
-  }
-}
-
 @media (max-width: 900px){
-  .card{
-    width: calc((100% - 16px) / 2); /* 2 per row */
+  .grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid .card,
+  .grid .card:nth-child(n + 5){
+    grid-column: span 1;
   }
 }
 
 @media (max-width: 560px){
-  .card{
-    width: 100%; /* 1 per row */
+  .grid{
+    grid-template-columns: 1fr;
   }
-}
 
-/* cards no longer need grid-column spans */
-.card{
-  border-radius: 0;
-  border: 1px solid rgba(20,20,20,.13);
-  background: var(--surface);
-  overflow: clip;
-  box-shadow: 0 10px 30px rgba(20,20,20,.08);
-  transition: transform .15s ease, box-shadow .15s ease;
+  .grid .card,
+  .grid .card:nth-child(n + 5){
+    grid-column: span 1;
+  }
 }
 
 .card:hover{
