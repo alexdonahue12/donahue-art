@@ -495,21 +495,40 @@ ul{ margin: 0; padding-left: 18px; }
 /* --------------------------
    Gallery Cards (museum labels)
 --------------------------- */
-/* --- Work grid: 2 / 2 / 3 layout --- */
+/* --- Work grid: featured landscape + 2-column rows --- */
+
 .grid{
+
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 32px;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+
 }
 
-/* First 4 cards = 2 per row */
-.grid .card{
-  grid-column: span 3;
+/* First card spans full width */
+
+.grid .card:first-child{
+
+  grid-column: 1 / -1;
+
 }
 
-/* Last 3 cards = 3 per row */
-.grid .card:nth-child(n + 5){
-  grid-column: span 2;
+/* Make first thumbnail landscape */
+
+.grid .card:first-child .card-media{
+
+  aspect-ratio: 16 / 7;
+
+}
+
+/* Other cards stay square */
+
+.grid .card:not(:first-child) .card-media{
+
+  aspect-ratio: 1 / 1;
+
 }
 
 .card{
