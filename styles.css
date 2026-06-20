@@ -532,11 +532,12 @@ ul{ margin: 0; padding-left: 18px; }
 }
 
 .card{
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
   border-radius: 0;
-  border: 1px solid rgba(20,20,20,.13);
-  background: var(--surface);
   overflow: clip;
-  box-shadow: 0 10px 30px rgba(20,20,20,.08);
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
@@ -569,18 +570,21 @@ ul{ margin: 0; padding-left: 18px; }
 }
 
 .card-media{
-  aspect-ratio: 1 / 1; /* keep square if you applied earlier */
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: auto;
+  background: var(--surface);
+  border: 1px solid rgba(20,20,20,.12);
   overflow: hidden;
-  aspect-ratio: 1 / 1;
-  background: var(--surface-2);
 }
+
 .card-media img{
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: scale(1);
-  transition: transform .35s ease;
+  transition: transform .4s ease;
 }
 
 .card-body{
@@ -589,47 +593,34 @@ ul{ margin: 0; padding-left: 18px; }
 }
 
 .card-title{
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none; /* prevents weird click/flow issues on mobile */
+  margin: 10px 0 0;
+  margin-top: 1px; /* instead of 18px or 22px */
+  min-height: 60px; /* adjust as needed */
+  padding: 0;
 
-  margin: 0;
-  padding: 24px 16px 18px;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
 
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 500;
   text-align: center;
+  line-height: 1.4;
 
-  color: var(--surface);
+  color: var(--ink);
 
-  background: linear-gradient(
-    to top,
-    rgba(28,28,28,.65),
-    rgba(28,28,28,.35),
-    rgba(28,28,28,0)
-  );
-
-  transition: background .25s ease, color .25s ease;
+  position: static;
+  background: none;
 }
 
 .card:hover .card-media img{
-  transform: scale(1.03);
-  filter: brightness(.9);
+  transform: scale(1.02);
+  filter: none;
 }
 
 .card:hover .card-title{
-  background: linear-gradient(
-    to top,
-    rgba(28,28,28,.92),
-    rgba(28,28,28,.65),
-    rgba(28,28,28,.3),
-    rgba(28,28,28,0)
-  );
-
-  color: var(--gold-2);
+  color: var(--gold);
 }
 
 .card-meta{
