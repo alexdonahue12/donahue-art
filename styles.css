@@ -971,14 +971,11 @@ input:focus, textarea:focus{
    Project Gallery
 ------------------------------*/
 
-.project-gallery-large{
-
-    position:relative;
-
-    max-width:1000px;
-
-    margin:0 auto 24px;
-
+.project-gallery-large {
+    position: relative;
+    width: 96vw;
+    max-width: 1800px;
+    margin: 0 auto 24px;
 }
 
 .gallery-main{
@@ -994,23 +991,15 @@ input:focus, textarea:focus{
 }
 
 .gallery-main img{
-
     display:block;
-
     width:100%;
-
     height:auto;
-
-    max-height:75vh;
-
-    aspect-ratio:16/9;
+    max-height:82vh;
 
     object-fit:contain;
 
     transition:opacity .25s ease;
-
     cursor:zoom-in;
-
 }
 
 .gallery-arrow{
