@@ -1086,52 +1086,76 @@ input:focus, textarea:focus{
 
 @media (max-width:700px){
 
+.project-gallery-large{
+
+    width:100vw;
+
+    margin-left:calc(50% - 50vw);
+
+    margin-right:calc(50% - 50vw);
+
+    padding:0;
+
+}
+
+.gallery-main{
+
+    width:100%;
+
+}
+
 .gallery-main img{
 
     width:100%;
-    height:auto;
 
-    /* fills nearly the whole phone */
-    object-fit:cover;
+    display:block;
+
 }
 
 .gallery-arrow{
 
-    width:48px;
-    height:48px;
+    width:52px;
+
+    height:52px;
 
     font-size:34px;
+
 }
 
 .gallery-arrow.prev{
-    left:8px;
+
+    left:12px;
+
 }
 
 .gallery-arrow.next{
-    right:8px;
-}
 
-.gallery-thumb{
+    right:12px;
 
-    width:60px;
-    height:60px;
 }
 
 .gallery-thumbs{
 
+    display:flex;
+
     overflow-x:auto;
-    justify-content:flex-start;
-    flex-wrap:nowrap;
 
     gap:10px;
 
-    padding:18px 8px;
+    padding:18px 16px;
 
-    scrollbar-width:none;
+    justify-content:flex-start;
+
 }
 
-.gallery-thumbs::-webkit-scrollbar{
-    display:none;
+.gallery-thumb{
+
+    flex:0 0 auto;
+
+    width:72px;
+
+    height:72px;
+
 }
 
 }
