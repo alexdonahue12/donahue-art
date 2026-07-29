@@ -1083,11 +1083,11 @@ input:focus, textarea:focus{
 
 .project-gallery-large{
 
-    width:100vw;
+    width:100%;
 
-    margin-left:calc(50% - 50vw);
+    margin-left:0;
 
-    margin-right:calc(50% - 50vw);
+    margin-right:0;
 
     padding:0;
 
@@ -1133,7 +1133,11 @@ input:focus, textarea:focus{
 
     display:flex;
 
+    flex-wrap:nowrap;
+
     overflow-x:auto;
+
+    -webkit-overflow-scrolling:touch;
 
     gap:10px;
 
