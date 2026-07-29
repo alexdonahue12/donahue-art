@@ -120,7 +120,7 @@ ul{ margin: 0; padding-left: 18px; }
   display: block;
   width: 58px;
   height: 2px;
-  margin: 10px 0 18px; /* ← added bottom margin */
+  margin: 10px 0 18px; /* â† added bottom margin */
   background: linear-gradient(90deg, var(--gold), transparent);
   opacity: .9;
 }
@@ -640,7 +640,7 @@ html, body{
   display: grid;
   grid-template-columns: 1.15fr .85fr;
   gap: 18px;
-  align-items: stretch; /* ← important */
+  align-items: stretch; /* â† important */
 }
 .about-card{
   border-radius: var(--radius);
@@ -745,7 +745,7 @@ html, body{
 
 /* Push card to bottom */
 .about-main .about-card{
-  margin-top: auto;   /* ← magic line */
+  margin-top: auto;   /* â† magic line */
 }
 
 .about-side{
@@ -884,7 +884,7 @@ input:focus, textarea:focus{
   font-size: .92rem;
 }
 
-/* Project facts — inline, catalog-style */
+/* Project facts â€” inline, catalog-style */
 .project-facts--inline{
   display: flex;
   flex-wrap: wrap;
@@ -946,7 +946,7 @@ input:focus, textarea:focus{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  padding: 0 40px; /* ← adds space on left & right */
+  padding: 0 40px; /* â† adds space on left & right */
 }
 
 .series-gallery img {
@@ -980,6 +980,8 @@ input:focus, textarea:focus{
 .gallery-main{
     position:relative;
     width:100%;
+    display:block;
+    margin:0;
 }
 
 .gallery-main img{
