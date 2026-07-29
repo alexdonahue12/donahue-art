@@ -971,11 +971,12 @@ input:focus, textarea:focus{
    Project Gallery
 ------------------------------*/
 
-.project-gallery-large {
-    position: relative;
-    width: 96vw;
-    max-width: 1800px;
-    margin: 0 auto 24px;
+.project-gallery-large{
+    position:relative;
+    width:100%;
+    max-width:1900px;
+    margin:0 auto 24px;
+    padding:0 18px;
 }
 
 .gallery-main{
@@ -993,10 +994,10 @@ input:focus, textarea:focus{
 .gallery-main img{
 
     display:block;
-    width:100%;
-    height:auto;
 
-    max-height:85vh;
+    width:100%;
+
+    max-height:92vh;
 
     aspect-ratio:auto;
 
@@ -1040,15 +1041,11 @@ input:focus, textarea:focus{
 }
 
 .gallery-arrow.prev{
-
-    left:-23px;
-
+    left:-10px;
 }
 
 .gallery-arrow.next{
-
-    right:-23px;
-
+    right:-10px;
 }
 
 .gallery-thumbs{
@@ -1107,51 +1104,57 @@ input:focus, textarea:focus{
 
 @media (max-width:700px){
 
-    .project-gallery-large{
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-    margin-right:calc(50% - 50vw);
+.project-gallery-large{
+    width:100%;
+    padding:0 14px;
+    overflow:hidden;
 }
 
-    .gallery-main img{
+.gallery-main img{
+    display:block;
     width:100%;
     height:auto;
     max-height:none;
-    aspect-ratio:auto;
-    object-fit:contain;
 }
 
-    .gallery-main img{
-        width:100%;
-        max-width:100%;
-        max-height:none;
-        aspect-ratio:auto;
-        object-fit:contain;
-    }
-
-    .gallery-arrow{
+.gallery-arrow{
     width:42px;
     height:42px;
-    font-size:22px;
+    left:12px;
 }
 
-    .gallery-thumbs{
-        display:none;
-    }
-
-    .gallery-thumb{
-        width:100%;
-        height:auto;
-        aspect-ratio:1;
-    }
-
+.gallery-arrow.next{
+    left:auto;
+    right:12px;
 }
 
-@media (max-width:700px){
+.gallery-thumbs{
+    display:flex;
+    flex-wrap:nowrap;
 
-    .container{
-        width:min(100% - 24px, var(--container));
-    }
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    justify-content:flex-start;
+
+    gap:8px;
+
+    margin-top:14px;
+    padding:0 2px 12px;
+
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+}
+
+.gallery-thumbs::-webkit-scrollbar{
+    display:none;
+}
+
+.gallery-thumb{
+    flex:0 0 auto;
+    width:64px;
+    height:64px;
+}
 
 }
 
