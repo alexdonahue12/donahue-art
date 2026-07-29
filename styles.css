@@ -973,7 +973,6 @@ input:focus, textarea:focus{
 
 .project-gallery-large{
     position:relative;
-    width:100%;
     max-width:1600px;
     margin:0 auto 32px;
 }
@@ -987,11 +986,7 @@ input:focus, textarea:focus{
     display:block;
     width:100%;
     height:auto;
-
-    /* make the image as large as possible */
-    max-height:none;
-
-    object-fit:cover;
+    object-fit:contain;
 }
 
 
