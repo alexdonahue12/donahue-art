@@ -179,4 +179,22 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.key === "ArrowLeft") updateCarousel(currentIndex - 1);
     }
   });
+  let touchStartX = 0;
+let touchEndX = 0;
+
+mainImage.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+mainImage.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+
+    if (touchStartX - touchEndX > 50) {
+        showImage((current + 1) % images.length);
+    }
+
+    if (touchEndX - touchStartX > 50) {
+        showImage((current - 1 + images.length) % images.length);
+    }
+});
 });
