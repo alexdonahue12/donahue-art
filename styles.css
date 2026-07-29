@@ -967,153 +967,19 @@ input:focus, textarea:focus{
   }
 }
 
-/* -----------------------------
-   Project Gallery
-------------------------------*/
+/* ===========================
+   PROJECT GALLERY
+=========================== */
 
 .project-gallery-large{
     position:relative;
     width:100%;
-    max-width:1900px;
-    margin:0 auto 24px;
-    padding:0 18px;
+    max-width:1600px;
+    margin:0 auto 32px;
 }
 
 .gallery-main{
-
-    background:transparent;
-
-    border:none;
-
-    box-shadow:none;
-
-    overflow:hidden;
-
-}
-
-.gallery-main img{
-
-    display:block;
-
-    width:100%;
-
-    max-height:92vh;
-
-    aspect-ratio:auto;
-
-    object-fit:contain;
-}
-
-.gallery-arrow{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-
-    width:52px;
-    height:52px;
-
-    border:none;
-    border-radius:50%;
-
-    background:rgba(255,255,255,.92);
-    color:#444;              /* <-- add */
-    font-size:34px;          /* <-- instead of 24 */
-
-    display:flex;            /* <-- add */
-    align-items:center;      /* <-- add */
-    justify-content:center;  /* <-- add */
-
-    cursor:pointer;
-
-    appearance:none;         /* <-- add */
-    -webkit-appearance:none; /* <-- add */
-
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-    transition:.2s;
-}
-
-.gallery-arrow:hover{
-
-    background:white;
-
-    transform:translateY(-50%) scale(1.08);
-
-}
-
-.gallery-arrow.prev{
-    left:18%;
-}
-
-.gallery-arrow.next{
-    right:18%;
-}
-
-.gallery-thumbs{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:18px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:40px;
-
-}
-
-.gallery-thumb{
-
-    width:100px;
-
-    height:100px;
-
-    object-fit:cover;
-
-    cursor:pointer;
-
-    opacity:.55;
-
-    transition:.25s;
-
-    border:2px solid transparent;
-
-}
-
-.gallery-thumb:hover{
-
-    opacity:1;
-
-    transform:translateY(-3px);
-
-}
-
-.gallery-thumb.active{
-
-    opacity:1;
-
-    border-color:var(--gold);
-
-}
-
-.carousel-main-image{
-
-    transition:opacity .2s ease;
-
-}
-
-@media (max-width:700px){
-
-.project-gallery-large{
-    width:100%;
-    max-width:none;
-    margin:0 auto 28px;
-    padding:0 16px;
     position:relative;
-    box-sizing:border-box;
-}
-
-.gallery-main{
     width:100%;
 }
 
@@ -1121,64 +987,151 @@ input:focus, textarea:focus{
     display:block;
     width:100%;
     height:auto;
+
+    /* make the image as large as possible */
     max-height:none;
-    object-fit:contain;
+
+    object-fit:cover;
 }
 
-.gallery-arrow{
-    width:46px;
-    height:46px;
 
+/* ---------- Arrows ---------- */
+
+.gallery-arrow{
+
+    all:unset;
+
+    position:absolute;
     top:50%;
     transform:translateY(-50%);
 
-    background:rgba(255,255,255,.9);
-    color:#444;
+    width:56px;
+    height:56px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:34px;
+    border-radius:50%;
 
-    appearance:none;
-    -webkit-appearance:none;
+    background:rgba(255,255,255,.92);
+
+    color:#333;
+
+    font-size:38px;
+    font-weight:400;
+    line-height:1;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+
+    z-index:10;
+
+    transition:.2s;
+}
+
+.gallery-arrow:hover{
+    transform:translateY(-50%) scale(1.08);
+    background:#fff;
 }
 
 .gallery-arrow.prev{
-    left:22px;
+    left:12px;
 }
 
 .gallery-arrow.next{
-    right:22px;
+    right:12px;
 }
+
+
+/* ---------- Thumbnails ---------- */
 
 .gallery-thumbs{
     display:flex;
+    justify-content:center;
+    gap:16px;
+
+    margin:22px 0 42px;
+
+    flex-wrap:wrap;
+}
+
+.gallery-thumb{
+    width:90px;
+    height:90px;
+
+    object-fit:cover;
+
+    opacity:.45;
+
+    border:2px solid transparent;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.gallery-thumb.active{
+    opacity:1;
+    border-color:var(--gold);
+}
+
+.gallery-thumb:hover{
+    opacity:1;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:700px){
+
+.gallery-main img{
+
+    width:100%;
+    height:auto;
+
+    /* fills nearly the whole phone */
+    object-fit:cover;
+}
+
+.gallery-arrow{
+
+    width:48px;
+    height:48px;
+
+    font-size:34px;
+}
+
+.gallery-arrow.prev{
+    left:8px;
+}
+
+.gallery-arrow.next{
+    right:8px;
+}
+
+.gallery-thumb{
+
+    width:60px;
+    height:60px;
+}
+
+.gallery-thumbs{
+
     overflow-x:auto;
-    overflow-y:hidden;
+    justify-content:flex-start;
+    flex-wrap:nowrap;
 
     gap:10px;
 
-    flex-wrap:nowrap;
+    padding:18px 8px;
 
-    justify-content:flex-start;
-
-    padding:18px 0 8px;
-
-    -webkit-overflow-scrolling:touch;
     scrollbar-width:none;
 }
 
 .gallery-thumbs::-webkit-scrollbar{
     display:none;
-}
-
-.gallery-thumb{
-    flex:0 0 auto;
-
-    width:58px;
-    height:58px;
 }
 
 }
