@@ -76,11 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = Math.max(0, thumbnails.findIndex((thumbnail) => thumbnail.classList.contains("active")));
   let modalUsesGallery = false;
+  let zoomEnabled = false;
 
   function resetFullscreenZoom() {
     modalImage.style.transformOrigin = "center center";
     modalImage.style.transform = "scale(1)";
     modal.classList.remove("is-zoomed");
+    zoomEnabled = false;
   }
 
   function openModal(src, alt = "Artwork", usesGallery = false) {
@@ -144,9 +146,20 @@ document.addEventListener("DOMContentLoaded", () => {
     image.addEventListener("click", () => openModal(image.currentSrc || image.src, image.alt));
   });
 
-  // Cursor-follow zoom applies only while a fullscreen image is open and only with a mouse.
+  // Click the fullscreen image to arm/disarm cursor-follow zoom.
+  modalImage.addEventListener("click", (event) => {
+    event.stopPropagation(); // don't let this bubble to the modal's click-to-close handler
+    zoomEnabled = !zoomEnabled;
+    if (!zoomEnabled) {
+      modalImage.style.transformOrigin = "center center";
+      modalImage.style.transform = "scale(1)";
+      modal.classList.remove("is-zoomed");
+    }
+  });
+
+  // Cursor-follow zoom applies only once armed by a click, while a fullscreen image is open, and only with a mouse.
   modalImage.addEventListener("pointermove", (event) => {
-    if (!modal.classList.contains("active") || event.pointerType !== "mouse") return;
+    if (!modal.classList.contains("active") || !zoomEnabled || event.pointerType !== "mouse") return;
     const rect = modalImage.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;

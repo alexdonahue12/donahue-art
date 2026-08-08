@@ -507,25 +507,25 @@ ul{ margin: 0; padding-left: 18px; }
 
 }
 
-/* First card spans full width */
+/* Featured card spans full width */
 
-.grid .card:first-child{
+.grid .card--featured{
 
   grid-column: 1 / -1;
 
 }
 
-/* Make first thumbnail landscape */
+/* Featured thumbnail is landscape */
 
-.grid .card:first-child .card-media{
+.grid .card--featured .card-media{
 
   aspect-ratio: 16 / 7;
 
 }
 
-/* Other cards stay square */
+/* All other cards stay square */
 
-.grid .card:not(:first-child) .card-media{
+.grid .card:not(.card--featured) .card-media{
 
   aspect-ratio: 1 / 1;
 
@@ -550,6 +550,10 @@ ul{ margin: 0; padding-left: 18px; }
   .grid .card:nth-child(n + 5){
     grid-column: span 1;
   }
+
+  .grid .card--featured{
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 560px){
@@ -560,6 +564,10 @@ ul{ margin: 0; padding-left: 18px; }
   .grid .card,
   .grid .card:nth-child(n + 5){
     grid-column: span 1;
+  }
+
+  .grid .card--featured{
+    grid-column: 1 / -1;
   }
 }
 
@@ -827,20 +835,20 @@ input:focus, textarea:focus{
 
 .project-main{ display: grid; gap: 18px; }
 
-.project-feature{
-    margin: 0 auto;
-    max-width: 1100px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    overflow: visible;
+.project-feature img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
-.project-feature img{
-    width:100%;
-    height:auto;
-    display:block;
-    object-fit:contain;
+/* Use this modifier only on portrait-format pieces so they fit on screen */
+.project-feature--portrait img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 90vh;
+    margin: 0 auto;
 }
 
 .project-feature--icon{
@@ -852,11 +860,15 @@ input:focus, textarea:focus{
 }
 
 .project-feature--landscape{
-  max-width: 1000px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.project-text{ max-width: 78ch; }
-.clean-list{ margin: 0; color: var(--muted); }
+.project-text{
+  max-width: 78ch;
+  margin: 2px auto 0; /* increase top space, keep it centered */
+  text-align: left;
+}
 
 .project-gallery{
   display: grid;
