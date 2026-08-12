@@ -956,7 +956,7 @@ input:focus, textarea:focus{
 
 .series-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 0 40px; /* ← adds space on left & right */
 }
