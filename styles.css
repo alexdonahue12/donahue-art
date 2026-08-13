@@ -958,7 +958,9 @@ input:focus, textarea:focus{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  padding: 0 40px; /* ← adds space on left & right */
+  max-width: 850px;   /* narrower container = smaller images */
+  margin: 0 auto;      /* center it in the page */
+  padding: 0;          /* remove old side padding, no longer needed */
 }
 
 .series-gallery img {
